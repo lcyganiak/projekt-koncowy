@@ -15,5 +15,23 @@
   ],
   "profile": {
     "name": "typicode"
+  },
+  "books": [
+    {
+    "id": 1,
+    "title": "Ogniem i mieczem",
+    "author": "Henryk sienkiewicz",
+    "desc": "Pewnego wieczoru samotnie podróżujący jeździec został napadnięty przez nieznanych żołnierzy. Nie wiadomo, jak zakończyłby się ten incydent, gdyby nie pomoc przypadkowo przejeżdżającego rycerza – Jana Skrzetuskiego. Pokonał on agresorów i uratował życie nieznajomego, który najpierw przedstawił się jako Zenobi Abdank, a potem – już przy pożegnaniu - Bohdan Zenobi Chmielnicki.Po dotarciu do Czehryna, Skrzetuski udał się na rozmowę z chorążym Zaćwilichowskim, do karczmy Wołocha Dopuła, w której głównym tematem była ucieczka Chmielnickiego. Dzięki temu Jan poznał przeszłość swojego dłużnika oraz jego głównego wroga – Czaplińskiego. Gdy otwarcie sprzeciwił się woli podstarościego, zebrani zaczęli wiwatować na cześć odważnego żołnierza. Takim sposobem Skrzetuski poznał swoich przyszłych towarzyszy - Zagłobę oraz Longinusa Podbipiętę.",
+    "years": 1902,
+    "rating": [5, 1, 5]
+  },
+  {
+    "id": 1,
+    "title": "Lalka",
+    "author": "Bolesław Prus",
+    "desc": "Jest rok 1878. W jednej z warszawskich jadłodajni toczy się rozmowa pomiędzy trzema mężczyznami: panem Deklewskim, radcą Węgrowiczem i Szprotem. Z rozmowy tej poznajemy dzieje Wokulskiego.Czytaj więcej na https://www.bryk.pl/lektury/boleslaw-prus/lalka.streszczenie-szczegolowe#utm_source=paste&utm_medium=paste&utm_campaign=other",
+    "years": 1889,
+    "rating": [4, 6, 8]
   }
+]
 }
