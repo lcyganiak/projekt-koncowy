@@ -6,7 +6,7 @@ import './App.scss';
 import { BrowserRouter as Router, Route, Link, Switch, useHistory } from 'react-router-dom';
 
 // components Nav
-import Home from './view/Home/Home';
+import { Home } from './view/Home/Home';
 import { Add } from './view/Add/Add';
 import { All } from './view/All/All';
 
@@ -41,7 +41,7 @@ const App = () => {
 
   return (
     <GlobalStore>
-      <div className='App'>
+      <div className='.app'>
 
         <Router>
           <Nav navElements={navigation}></Nav>
@@ -49,7 +49,7 @@ const App = () => {
 
           <Switch>
 
-            <Route exact path='/all' component={All} ></Route>
+            <Route exact path='/all' component={All} />
             <Route exact path='/add' component={Add} />
             <Route exact path='/' component={Home} />
           </Switch>

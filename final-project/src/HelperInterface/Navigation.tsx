@@ -1,8 +1,7 @@
 export enum PathNav {
     HOME = '/',
     ALL = '/all',
-    ADD = '/add',
-    CONTACT = '/constact'
+    ADD = '/add'
 }
 
 export interface navElements {

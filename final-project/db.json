@@ -4,11 +4,6 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
-    },
-    {
-      "id": 3,
-      "title": "xd",
-      "author": "typicode"
     }
   ],
   "comments": [
@@ -20,17 +15,5 @@
   ],
   "profile": {
     "name": "typicode"
-  },
-  "books": [
-    {
-      "id": 1,
-      "title": "Ogniem i mieczem",
-      "author": "Henryk Sienkiewicz"
-    }
-  ],
-  "authors": [
-    {
-      
-    }
-  ]
+  }
 }

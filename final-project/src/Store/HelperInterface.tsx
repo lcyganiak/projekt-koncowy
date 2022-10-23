@@ -22,4 +22,3 @@ export interface GlobalStateInterface {
 export interface GlobalStoreInterface {
     children : JSX.Element | JSX.Element[]
 }
-

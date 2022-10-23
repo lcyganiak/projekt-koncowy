@@ -1,29 +1,16 @@
-import {FC} from 'react'
+import { FC } from 'react'
 import { Grid } from '@mui/material'
-export const Footer:FC = () => {
-    return (
-        <footer className=''>
-            <Grid container spacing={2}>
-                <Grid item xs={12} md={4}>
-                  <ul>
-                    <li>All ....</li>
-                    <li>Add .....</li>
-                    <li>Home</li>
-                    <li>Najlepsza .....</li>
-                  </ul>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <p>Zadzwoni do trówrcy 72728282828</p>
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <p>Lorem. xs4</p>
-                </Grid>
-            </Grid>
-
-   
-        </footer>
-
-
-
-    )
+import style from './Footer.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+export const Footer: FC = () => {
+	return (
+		<footer>
+			<div className={style.footer}>
+				<span>Developed by M.K. | </span>
+               
+			</div>
+			<div className={style.icon}>
+			</div>
+		</footer>
+	)
 }
