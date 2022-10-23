@@ -1,0 +1,9 @@
+@import '../../Typografia/_variables.scss';
+@import '../../Typografia/mixin';
+
+
+
+.btn {
+    @include btn;
+    background-color: $dark-blue;
+}

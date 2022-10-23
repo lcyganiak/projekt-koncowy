@@ -6,6 +6,8 @@ import { FC } from 'react';
 
 import { navElements } from '../../HelperInterface/Navigation'
 
+import styles from './Nav.module.scss'
+
 interface PropsNav {
   children?: JSX.Element | JSX.Element[],
   navElements: navElements[]
@@ -20,8 +22,8 @@ export const Nav: FC<PropsNav> = (props) => {
   }
   const elementLi = props.navElements.map((item, index) => {
     return (
-      <li key={index}>
-        <button onClick={() => handlePath(item.path)}>{item.name}</button>
+      <li key={index} className={styles.li}>
+        <button className={styles.btn} onClick={() => handlePath(item.path)}>{item.name}</button>
       </li>
     )
   })

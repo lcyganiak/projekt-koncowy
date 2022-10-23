@@ -1,6 +1,6 @@
 import React from 'react';
 // style 
-import styles from './App.module.scss';
+import './App.scss';
 
 // router
 import { BrowserRouter as Router, Route, Link, Switch, useHistory } from 'react-router-dom';
@@ -41,7 +41,7 @@ const App = () => {
 
   return (
     <GlobalStore>
-      <div className={styles.App}>
+      <div className='App'>
 
         <Router>
           <Nav navElements={navigation}></Nav>
