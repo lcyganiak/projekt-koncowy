@@ -11,8 +11,9 @@ interface BookInterface {
 }
 
 interface AuthorInterface {
-  name: string,
-  books: string[],
+  author: string,
+  books?: string[],
+  nota: string
 }
 
 interface GlobalStateInterface {

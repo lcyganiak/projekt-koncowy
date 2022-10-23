@@ -55,7 +55,7 @@ const App = () => {
           </Switch>
 
         </Router>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </div>
     </GlobalStore>
   );
