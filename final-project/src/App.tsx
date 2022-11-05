@@ -3,7 +3,7 @@ import React from 'react';
 import './App.scss';
 
 // router
-import { BrowserRouter as Router, Route, Link, Switch, useHistory } from 'react-router-dom';
+import {  Routes, Route} from 'react-router-dom';
 
 // components Nav
 import { Home } from './view/Home/Home';
@@ -41,20 +41,15 @@ const App = () => {
 
   return (
     <GlobalStore>
-      <div className='.app'>
+      <div className='app'>
 
-        <Router>
-          <Nav navElements={navigation}></Nav>
+        <Nav navElements={navigation}></Nav>
+        <Routes>
+            <Route path='/all' element={ <All/>} />
+            <Route path='/add' element={<Add/>} />
+            <Route path='/' element={<Home/>} />
 
-
-          <Switch>
-
-            <Route exact path='/all' component={All} />
-            <Route exact path='/add' component={Add} />
-            <Route exact path='/' component={Home} />
-          </Switch>
-
-        </Router>
+        </Routes>
         {/* <Footer></Footer> */}
       </div>
     </GlobalStore>
