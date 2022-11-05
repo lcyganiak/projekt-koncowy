@@ -6,8 +6,10 @@ const getBooks = () => {
     const apiBooks = `${API}/books`
     return axios.get(apiBooks)
 }
-const getOneBook =() => {
+const getOneBook =(id: string) => {
     // do pobierania pojedyniczej ksiązki
+    const apiOneBook = `${API}/books/${id}`
+    return axios.get(apiOneBook)
 }
 
 const getAuthors = () => {

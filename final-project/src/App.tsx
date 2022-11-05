@@ -9,6 +9,7 @@ import {  Routes, Route} from 'react-router-dom';
 import { Home } from './view/Home/Home';
 import { Add } from './view/Add/Add';
 import { All } from './view/All/All';
+import { OneBook } from './view/OneBook/OneBook';
 
 import { Footer } from './components/Footer/Footer';
 
@@ -48,7 +49,7 @@ const App = () => {
             <Route path='/all' element={ <All/>} />
             <Route path='/add' element={<Add/>} />
             <Route path='/' element={<Home/>} />
-
+            <Route path='/:book/:id' element={<OneBook/>}/>
         </Routes>
         {/* <Footer></Footer> */}
       </div>

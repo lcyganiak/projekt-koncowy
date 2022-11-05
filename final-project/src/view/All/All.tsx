@@ -1,6 +1,9 @@
 import { useEffect, useContext, useState, FC } from 'react';
 import { getBooks, getAuthors } from '../../services/books.service';
 import { GlobalState } from '../../Store/GlobalStore';
+import { useNavigate } from 'react-router-dom';
+
+// in v5
 
 // material ui
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button, Tooltip } from '@mui/material';
@@ -12,6 +15,7 @@ export const All: FC = () => {
   const global = useContext(GlobalState) // 1 wszystko puste
   const [allBooks, setAllBooks] = useState(global.globalBooks)  // 2 tablica globalBooks jest pusta 
   const [allAuthors, setAllAuthors] = useState(global.globalAuthors)
+  const navigate = useNavigate()
   const getAllBooks = () => {
     const books = getBooks()
     books
@@ -48,7 +52,6 @@ export const All: FC = () => {
   }, [allBooks, allAuthors])
 
 
-  console.log(allBooks)
   const howManyCards = allBooks.length <= 2 ? 6 : 4
 
   const booksWithNotaAuthors = allBooks.map(book => {
@@ -56,11 +59,12 @@ export const All: FC = () => {
     const nota = author ? author.nota : 'Brak noty biograficznej'
     return { ...book, nota }
   })
-  console.log(booksWithNotaAuthors)
 
-  const xd = () => {
-    // przykładowa funkcjia 
-    console.log(1235)
+  const showMore = (id: number, title: string): void => {
+    console.log(id)
+    const path = '/'+ title+ '/' + id
+    navigate(`/${title}/${id}`)
+    
   }
 
   const showCardWithBook: JSX.Element[] = booksWithNotaAuthors.map(item => {
@@ -88,8 +92,8 @@ export const All: FC = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button onClick={xd} size="small">dodaj ocenę</Button>
-            <Button size="small">Pokaż szczegóły</Button>
+            <Button size="small">dodaj ocenę</Button>
+            <Button onClick={() => showMore(item.id, item.title)} size="small">Pokaż szczegóły</Button>
           </CardActions>
         </Card>
       </Grid>)
