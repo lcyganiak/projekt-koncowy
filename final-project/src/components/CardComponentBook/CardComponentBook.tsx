@@ -58,10 +58,10 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
         </Typography>
       </CardContent>
      
-      {!!children} && 
+      { !!{children} && 
       <CardActions>
         {children}
-      </CardActions>
+      </CardActions>}
     </Card>
   )
 }
