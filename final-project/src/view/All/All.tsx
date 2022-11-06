@@ -2,8 +2,7 @@ import { useEffect, useContext, useState, FC } from 'react';
 import { getBooks, getAuthors } from '../../services/books.service';
 import { GlobalState } from '../../Store/GlobalStore';
 import { useNavigate } from 'react-router-dom';
-
-// in v5
+ import { CardComponentBook } from '../../components/CardComponentBook/CardComponentBook'
 
 // material ui
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button, Tooltip } from '@mui/material';
@@ -60,7 +59,6 @@ export const All: FC = () => {
   })
 
   const showMore = (id: number, title: string): void => {
-    const path = '/'+ title+ '/' + id
     navigate(`/${title}/${id}`)
     
   }
@@ -68,7 +66,19 @@ export const All: FC = () => {
   const showCardWithBook: JSX.Element[] = booksWithNotaAuthors.map(item => {
     return (
       <Grid item xs={12} md={howManyCards} key={item.id}>
-        <Card >
+        <CardComponentBook 
+          title={item.title} 
+          classCss='px150'
+          author={item.author} 
+          desc={item.desc}
+          nota={item.nota}
+          collapse={true}
+          >
+
+            <Button size="small">dodaj ocenę</Button>
+            <Button onClick={() => showMore(item.id, item.title)} size="small">Pokaż szczegóły</Button>
+        </CardComponentBook>
+        {/* <Card >
           <CardMedia
             className=''
             component="img"
@@ -90,10 +100,9 @@ export const All: FC = () => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">dodaj ocenę</Button>
-            <Button onClick={() => showMore(item.id, item.title)} size="small">Pokaż szczegóły</Button>
+           
           </CardActions>
-        </Card>
+        </Card> */}
       </Grid>)
   })
   return (

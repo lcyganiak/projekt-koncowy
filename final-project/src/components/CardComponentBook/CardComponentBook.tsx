@@ -1,7 +1,12 @@
 import { FC } from 'react'
 // material ui
 import { Card, CardMedia, CardContent, Typography, CardActions, Button, Tooltip } from '@mui/material';
-import styles from './CardComponentBook.module.scss'
+import styles from './CardComponentBook.module.scss';
+import { useNavigate } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { ShowMoreText } from '../ShowMoreText/ShowMoreText'
+
+
 
 
 interface PropsCardComponentBook {
@@ -10,7 +15,9 @@ interface PropsCardComponentBook {
   nota?: string,
   author: string,
   desc: string,
-  children?: JSX.Element | JSX.Element[]
+  children?: JSX.Element | JSX.Element[],
+  collapse?: boolean,
+  isBackArrow?: boolean
 }
 
 export const CardComponentBook: FC<PropsCardComponentBook> = (
@@ -20,9 +27,12 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
     nota,
     author,
     desc,
-    children
+    children,
+    collapse,
+    isBackArrow
   }
 ) => {
+  const navigate = useNavigate()
   const tooltip = () => {
     return (
       nota ?
@@ -30,39 +40,54 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
           <Typography variant="h5" component="h5">
             Autor: {author.toUpperCase()}
           </Typography>
-        </Tooltip> : 
+        </Tooltip> :
         <>
-        <Typography variant="h5" component="h5">
-          Autor: {author?.toUpperCase()}
-        </Typography>
+          <Typography variant="h5" component="h5">
+            Autor: {author?.toUpperCase()}
+          </Typography>
         </>
     )
   }
-  
-  return (
-    <Card >
-      <CardMedia
-        className={styles[classCss] }
-        component="img"
-        alt={`Okładka książki ${title}`}
-        height="150"
-        image='https://via.placeholder.com/150'
-      />
-      <CardContent >
-        <Typography variant="h5" component="h5">
-          Tutuł: {title}
-        </Typography>
-        {tooltip()}
+  const collapseFn = () => {
+    if (collapse) {
+      return (
+        <ShowMoreText text={desc} />
+      )
+    } else {
+      return (
         <Typography variant="body2" color="text.secondary">
           {desc}
         </Typography>
-      </CardContent>
-     
-      { !!{children} && 
-      <CardActions>
-        {children}
-      </CardActions>}
-    </Card>
+      )
+    }
+  }
+  return (
+    <div>
+      {isBackArrow && <Button variant="text" startIcon={<ArrowBackIcon />} color='inherit' onClick={() => navigate(-1)}>
+        Powrót
+      </Button>}
+      <Card >
+        <CardMedia
+          className={styles[classCss]}
+          component="img"
+          alt={`Okładka książki ${title}`}
+          height="150"
+          image='https://via.placeholder.com/150'
+        />
+        <CardContent >
+          <Typography variant="h5" component="h5">
+            Tutuł: {title}
+          </Typography>
+          {tooltip()}
+
+        </CardContent>
+        {collapseFn()}
+        {!!{ children } &&
+          <CardActions>
+            {children}
+          </CardActions>}
+      </Card>
+    </div>
   )
 }
 
