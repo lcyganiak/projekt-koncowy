@@ -16,6 +16,11 @@ const getAuthors = () => {
     const apiAuthors = `${API}/author`
     return  axios.get(apiAuthors)
 }
+
+const addNewBook = (payload: any) => {
+    const apiBooks = `${API}/books`
+    return axios.post(apiBooks, payload)
+}
 export {
     getBooks,
     getOneBook,

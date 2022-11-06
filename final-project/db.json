@@ -18,58 +18,78 @@
   },
   "books": [
     {
-    "id": 1,
-    "title": "Ogniem i mieczem",
-    "author": "Henryk sienkiewicz",
-    "desc": "Pewnego wieczoru samotnie podróżujący jeździec został napadnięty przez nieznanych żołnierzy. Nie wiadomo, jak zakończyłby się ten incydent, gdyby nie pomoc przypadkowo przejeżdżającego rycerza – Jana Skrzetuskiego. Pokonał on agresorów i uratował życie nieznajomego, który najpierw przedstawił się jako Zenobi Abdank, a potem – już przy pożegnaniu - Bohdan Zenobi Chmielnicki.Po dotarciu do Czehryna, Skrzetuski udał się na rozmowę z chorążym Zaćwilichowskim, do karczmy Wołocha Dopuła, w której głównym tematem była ucieczka Chmielnickiego. Dzięki temu Jan poznał przeszłość swojego dłużnika oraz jego głównego wroga – Czaplińskiego. Gdy otwarcie sprzeciwił się woli podstarościego, zebrani zaczęli wiwatować na cześć odważnego żołnierza. Takim sposobem Skrzetuski poznał swoich przyszłych towarzyszy - Zagłobę oraz Longinusa Podbipiętę.",
-    "years": 1902,
-    "rating": [5, 1, 5]
-  },
-  {
-    "id": 2,
-    "title": "Lalka",
-    "author": "Bolesław Prus",
-    "desc": "Jest rok 1878. W jednej z warszawskich jadłodajni toczy się rozmowa pomiędzy trzema mężczyznami: panem Deklewskim, radcą Węgrowiczem i Szprotem. Z rozmowy tej poznajemy dzieje Wokulskiego.Czytaj więcej na",
-    "years": 1889,
-    "rating": [4, 6, 8]
-  },
-  {
-    "id": 3,
-    "title": "Dziady",
-    "author": "Adam Mickiewicz",
-    "desc": "Mieszkańcy wsi gromadzą się, by świętować Dziady – uroczystość poświęconą duchom zmarłych. Obrzędom przewodniczy Guślarz, to on wydaje polecenia ludowi i przywołuje kolejne przebywające w czyśćcu duchy. Najpierw rozkazuje zgasić lampy, świece i zasłonić okna w kaplicy, tak, aby nie docierał tam nawet blask księżyca",
-    "years": 1805,
-    "rating": [4, 6, 8]
-  },
-  {
-    "id": 4,
-    "title": "Potop",
-    "author": "Henryk sienkiewicz",
-    "desc": "W styczniu 1655 roku młody żołnierz, Andrzej Kmicic, przybył do Wodoktów, by poznać swoją przyszłą żonę, Aleksandrę Billewiczównę. Bardzo przypadli sobie do gustu, ale niestety buńczuczna i awanturnicza natura Kmicica spowodowała gniew panny Aleksandry. Kmicic usiłował porwać dziewczynę, ale przegrał w pojedynku z niepozornym, ale w szabli niepokonanym Michałem Wołodyjowskim. Tymczasem na Rzeczpospolitą napadli Szwedzi",
-    "years": 1902,
-    "rating": [5, 1, 5]
-  },
-  {
-    "id": 5,
-    "title": "365 dni",
-    "author": "Blanca ",
-    "desc": "nie mam pojęcia o czym ta ksiażka",
-    "years": 1902,
-    "rating": [5, 1, 5]
-  }
-], 
-"author" : [
-  {
-    "author":"ADam Mickiewicz",
-      "nota" : "Polski poeta, działacz polityczny, publicysta, tłumacz, filozof, działacz religijny, mistyk, organizator i dowódca wojskowy, nauczyciel akademicki."
-  },
-  {
-    "author":"Henryk sienkiewicz",
-    "nota": "Herbu Oszyk, pseudonim „Litwos”, „Musagetes”, „Juliusz Polkowski”, „K. Dobrzyński” – polski nowelista, powieściopisarz i publicysta; laureat Nagrody Nobla w dziedzinie literatury za całokształt twórczości, jeden z najpopularniejszych polskich pisarzy przełomu XIX i XX w."
-  },
-  {
-    "author": "Bolesław Prus",
-    "nota": "Polski pisarz, prozaik, nowelista i publicysta okresu pozytywizmu, współtwórca polskiego realizmu, kronikarz Warszawy, myśliciel i popularyzator wiedzy, działacz społeczny, propagator turystyki pieszej i rowerowej. Jeden z najwybitniejszych i najważniejszych pisarzy w historii literatury polskiej."
-  }
-]
+      "id": 1,
+      "title": "Ogniem i mieczem",
+      "author": "Henryk sienkiewicz",
+      "desc": "Pewnego wieczoru samotnie podróżujący jeździec został napadnięty przez nieznanych żołnierzy. Nie wiadomo, jak zakończyłby się ten incydent, gdyby nie pomoc przypadkowo przejeżdżającego rycerza – Jana Skrzetuskiego. Pokonał on agresorów i uratował życie nieznajomego, który najpierw przedstawił się jako Zenobi Abdank, a potem – już przy pożegnaniu - Bohdan Zenobi Chmielnicki.Po dotarciu do Czehryna, Skrzetuski udał się na rozmowę z chorążym Zaćwilichowskim, do karczmy Wołocha Dopuła, w której głównym tematem była ucieczka Chmielnickiego. Dzięki temu Jan poznał przeszłość swojego dłużnika oraz jego głównego wroga – Czaplińskiego. Gdy otwarcie sprzeciwił się woli podstarościego, zebrani zaczęli wiwatować na cześć odważnego żołnierza. Takim sposobem Skrzetuski poznał swoich przyszłych towarzyszy - Zagłobę oraz Longinusa Podbipiętę.",
+      "years": 1902,
+      "rating": [
+        5,
+        1,
+        5
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Lalka",
+      "author": "Bolesław Prus",
+      "desc": "Jest rok 1878. W jednej z warszawskich jadłodajni toczy się rozmowa pomiędzy trzema mężczyznami: panem Deklewskim, radcą Węgrowiczem i Szprotem. Z rozmowy tej poznajemy dzieje Wokulskiego.Czytaj więcej na",
+      "years": 1889,
+      "rating": [
+        4,
+        6,
+        8
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Dziady",
+      "author": "Adam Mickiewicz",
+      "desc": "Mieszkańcy wsi gromadzą się, by świętować Dziady – uroczystość poświęconą duchom zmarłych. Obrzędom przewodniczy Guślarz, to on wydaje polecenia ludowi i przywołuje kolejne przebywające w czyśćcu duchy. Najpierw rozkazuje zgasić lampy, świece i zasłonić okna w kaplicy, tak, aby nie docierał tam nawet blask księżyca",
+      "years": 1805,
+      "rating": [
+        4,
+        6,
+        8
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Potop",
+      "author": "Henryk sienkiewicz",
+      "desc": "W styczniu 1655 roku młody żołnierz, Andrzej Kmicic, przybył do Wodoktów, by poznać swoją przyszłą żonę, Aleksandrę Billewiczównę. Bardzo przypadli sobie do gustu, ale niestety buńczuczna i awanturnicza natura Kmicica spowodowała gniew panny Aleksandry. Kmicic usiłował porwać dziewczynę, ale przegrał w pojedynku z niepozornym, ale w szabli niepokonanym Michałem Wołodyjowskim. Tymczasem na Rzeczpospolitą napadli Szwedzi",
+      "years": 1902,
+      "rating": [
+        5,
+        1,
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "title": "365 dni",
+      "author": "Blanca ",
+      "desc": "nie mam pojęcia o czym ta ksiażka",
+      "years": 1902,
+      "rating": [
+        5,
+        1,
+        5
+      ]
+    }
+  ],
+  "author": [
+    {
+      "author": "ADam Mickiewicz",
+      "nota": "Polski poeta, działacz polityczny, publicysta, tłumacz, filozof, działacz religijny, mistyk, organizator i dowódca wojskowy, nauczyciel akademicki."
+    },
+    {
+      "author": "Henryk sienkiewicz",
+      "nota": "Herbu Oszyk, pseudonim „Litwos”, „Musagetes”, „Juliusz Polkowski”, „K. Dobrzyński” – polski nowelista, powieściopisarz i publicysta; laureat Nagrody Nobla w dziedzinie literatury za całokształt twórczości, jeden z najpopularniejszych polskich pisarzy przełomu XIX i XX w."
+    },
+    {
+      "author": "Bolesław Prus",
+      "nota": "Polski pisarz, prozaik, nowelista i publicysta okresu pozytywizmu, współtwórca polskiego realizmu, kronikarz Warszawy, myśliciel i popularyzator wiedzy, działacz społeczny, propagator turystyki pieszej i rowerowej. Jeden z najwybitniejszych i najważniejszych pisarzy w historii literatury polskiej."
+    }
+  ]
 }
