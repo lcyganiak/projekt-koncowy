@@ -46,7 +46,6 @@ export const All: FC = () => {
 
   }, [])
   useEffect(() => {
-    console.log(global.globalBooks)
     setAllBooks(global.globalBooks) // 4 czynnośc 
     setAllAuthors(global.globalAuthors)
   }, [allBooks, allAuthors])
@@ -61,7 +60,6 @@ export const All: FC = () => {
   })
 
   const showMore = (id: number, title: string): void => {
-    console.log(id)
     const path = '/'+ title+ '/' + id
     navigate(`/${title}/${id}`)
     

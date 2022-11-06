@@ -17,12 +17,10 @@ export const OneBook: FC = () => {
     const [book, setBook] = useState<BookInterface>({} as BookInterface)
     let isEmpty: boolean = true
     const { id } = useParams()
-    console.log(id)
     const getOneBookFetch = () => {
         if (id) {
             const book = getOneBook(id)
             book.then(item => {
-                console.log(item.data)
                 setBook(item.data)
             }).catch((err) => {
                 console.error(err)
@@ -42,7 +40,7 @@ export const OneBook: FC = () => {
     return (
         <CardComponentBook 
             title={book.title} 
-            classCss={'vh100'} 
+            classCss={'vh70'} 
             author={book.author} 
             desc={book.desc}        
         >
