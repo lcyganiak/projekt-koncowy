@@ -6,7 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import styles from './Add.module.scss';
 import uniqid from 'uniqid';
-
+import { addNewBook } from '../../services/books.service';
 export const Add: FC = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs('2022-04-07'));
   
@@ -24,6 +24,7 @@ export const Add: FC = () => {
   }
   const submitBook = (event: FormEvent) => {
     event.preventDefault()
+   
     console.log(event)
     console.log(form)
     if(form.current && form.current !== null) {
@@ -35,21 +36,17 @@ export const Add: FC = () => {
           return item
         }
       })
-        let onlyHTMLSth = []
-      for(let i = 0; form.current.length > i; i++) {
-        // logika sprawdzania id 
-        // push do tablicy onlyHTMLSth
-      }
       console.log(onlyElForm)
       // storzenie obiektu na wzór 
-      // const payload = {
-      //   title: 'pobrane z inputa tytuł ',
-      //   author: 'pobrane z inputa  autor',
-      //   desc: 'pobrane z textarea   ',
-      //   years: 'pobrane z dataPickera ',
-      //   rating: ' tablica pusta bo nie mamy ratingu'
-      // }
-
+      const payload = {
+        title: 'Malowany człowiek',
+        author: 'Piter V. Bret',
+        desc: 'Z każdym zmierzchem, w oparach mgły, nadchodzą opętane żądzą mordu bestie. Przerażeni ludzie chronią się za magicznymi runami. Rzeź ustaje bladym świtem, gdy światło zapędza demony z powrotem w Otchłań. Wydaje się, że nikt ani nic nie zdoła powstrzymać otchłańców, kładąc tym samym kres zagładzie. W tym dogorywającym świecie dorasta troje młodych ludzi. Bohaterski Arlen, przekonany, że większym od nocnego zła przekleństwem jest strach przepełniający ludzkie serca. Leesha – jej życie zrujnowało jedno proste kłamstwo – nowicjuszka u starej Zielarki. I Rojer, którego los na zawsze odmienił wędrowny Minstrel, wygrywając mu na skrzypkach skoczną melodię.',
+        years: 2010,
+        rating: []
+      }
+      console.log(payload)
+      addNewBook(payload).then(respons => console.log(respons)).catch((err) => console.log(err))
     }
     
   }
@@ -103,3 +100,4 @@ export const Add: FC = () => {
 }
 // dodanie unikalnych ID done
 // dodoanie id do pobieraonia z form done
+

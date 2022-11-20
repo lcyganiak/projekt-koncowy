@@ -12,7 +12,7 @@ export interface AuthorInterface {
     books: string[],
 }
 
-export interface GlobalStateInterface {
+export type GlobalStateInterface = {
     globalBooks: BookInterface[],
     globalAuthors: AuthorInterface[],
     globalGetBooks: (data: BookInterface[]) => void

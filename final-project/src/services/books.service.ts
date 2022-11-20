@@ -24,5 +24,6 @@ const addNewBook = (payload: any) => {
 export {
     getBooks,
     getOneBook,
-    getAuthors
+    getAuthors,
+    addNewBook
 }

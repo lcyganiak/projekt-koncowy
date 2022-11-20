@@ -15,28 +15,40 @@ export const All: FC = () => {
   const [allBooks, setAllBooks] = useState(global.globalBooks)  // 2 tablica globalBooks jest pusta 
   const [allAuthors, setAllAuthors] = useState(global.globalAuthors)
   const navigate = useNavigate()
-  const getAllBooks = () => {
-    const books = getBooks()
-    books
-      .then(res => {
-        const data = res.data
-        global.globalGetBooks(data)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
+  const getAllBooks = async () => {
+    try {
+      const books = await getBooks()
+      console.log(books)
+      await global.globalGetBooks(books.data)
+
+    } catch {
+      // obsługujemy error
+    }
+
+
+   // stare rozwiaznie 
+    // const books2 =  getBooks()
+    // books2
+    //   .then(res => {
+    //     const data = res.data
+    //     // global.globalGetBooks(data)
+    //   })
+    //   .catch((err) => {
+    //     console.error(err.message)
+    //   })
   }
 
-  const getAllAuthors = () => {
-    const authors = getAuthors()
-    authors
-      .then(res => {
-        const data = res.data
-        global.globalGetAuthors(data)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
+  const getAllAuthors = async () => {
+    const authors = await getAuthors()
+   await global.globalGetAuthors(authors.data)
+    // authors
+    //   .then(res => {
+    //     const data = res.data
+    //     global.globalGetAuthors(data)
+    //   })
+    //   .catch((err) => {
+    //     console.error(err.message)
+    //   })
   }
 
   useEffect(() => {
@@ -50,10 +62,10 @@ export const All: FC = () => {
   }, [allBooks, allAuthors])
 
 
-  const howManyCards = allBooks.length <= 2 ? 6 : 4
+  const howManyCards = global.globalBooks.length <= 2 ? 6 : 4
 
-  const booksWithNotaAuthors = allBooks.map(book => {
-    const author = allAuthors.find(item => item.author.toUpperCase() === book.author.toUpperCase())
+  const booksWithNotaAuthors = global.globalBooks.map(book => {
+    const author = global.globalAuthors.find(item => item.author.toUpperCase() === book.author.toUpperCase())
     const nota = author ? author.nota : 'Brak noty biograficznej'
     return { ...book, nota }
   })
