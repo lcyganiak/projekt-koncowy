@@ -7,11 +7,9 @@ import {  Routes, Route} from 'react-router-dom';
 
 // components Nav
 import { Home } from './view/Home/Home';
-import { Add } from './view/Add/Add';
+import  Add  from './view/Add/Add';
 import { All } from './view/All/All';
 import { OneBook } from './view/OneBook/OneBook';
-
-import { Footer } from './components/Footer/Footer';
 
 // componenty składowe
 
@@ -51,7 +49,6 @@ const App = () => {
             <Route path='/' element={<Home/>} />
             <Route path='/:book/:id' element={<OneBook/>}/>
         </Routes>
-        {/* <Footer></Footer> */}
       </div>
     </GlobalStore>
   );

@@ -21,9 +21,17 @@ const addNewBook = (payload: any) => {
     const apiBooks = `${API}/books`
     return axios.post(apiBooks, payload)
 }
+
+const addAuthor = (payload: any) => {
+    console.log(payload)
+    const apiAuthors = `${API}/author`
+    return axios.post(apiAuthors, payload)
+}
+
 export {
     getBooks,
     getOneBook,
     getAuthors,
-    addNewBook
+    addNewBook,
+    addAuthor
 }

@@ -5,10 +5,6 @@ import styles from './CardComponentBook.module.scss';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { ShowMoreText } from '../ShowMoreText/ShowMoreText'
-
-
-
-
 interface PropsCardComponentBook {
   title: string,
   classCss: string,
@@ -17,7 +13,8 @@ interface PropsCardComponentBook {
   desc: string,
   children?: JSX.Element | JSX.Element[],
   collapse?: boolean,
-  isBackArrow?: boolean
+  isBackArrow?: boolean,
+  imgScr?: string
 }
 
 export const CardComponentBook: FC<PropsCardComponentBook> = (
@@ -29,7 +26,9 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
     desc,
     children,
     collapse,
-    isBackArrow
+    isBackArrow,
+    imgScr
+    
   }
 ) => {
   const navigate = useNavigate()
@@ -61,6 +60,7 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
       )
     }
   }
+
   return (
     <div>
       {isBackArrow && <Button variant="text" startIcon={<ArrowBackIcon />} color='inherit' onClick={() => navigate(-1)}>
@@ -72,7 +72,7 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
           component="img"
           alt={`Okładka książki ${title}`}
           height="150"
-          image='https://via.placeholder.com/150'
+          image={imgScr}
         />
         <CardContent >
           <Typography variant="h5" component="h5">
@@ -87,6 +87,7 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
             {children}
           </CardActions>}
       </Card>
+
     </div>
   )
 }

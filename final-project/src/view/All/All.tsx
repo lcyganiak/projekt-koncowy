@@ -1,19 +1,15 @@
-import { useEffect, useContext, useState, FC } from 'react';
+import { useEffect, useContext, FC } from 'react';
 import { getBooks, getAuthors } from '../../services/books.service';
 import { GlobalState } from '../../Store/GlobalStore';
 import { useNavigate } from 'react-router-dom';
- import { CardComponentBook } from '../../components/CardComponentBook/CardComponentBook'
+import { CardComponentBook } from '../../components/CardComponentBook/CardComponentBook'
 
 // material ui
-import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button, Tooltip } from '@mui/material';
+import { Grid, Button, Alert, Snackbar } from '@mui/material';
 
-// style
-import styles from './All.module.scss'
 
 export const All: FC = () => {
   const global = useContext(GlobalState) // 1 wszystko puste
-  const [allBooks, setAllBooks] = useState(global.globalBooks)  // 2 tablica globalBooks jest pusta 
-  const [allAuthors, setAllAuthors] = useState(global.globalAuthors)
   const navigate = useNavigate()
   const getAllBooks = async () => {
     try {
@@ -24,42 +20,18 @@ export const All: FC = () => {
     } catch {
       // obsługujemy error
     }
-
-
-   // stare rozwiaznie 
-    // const books2 =  getBooks()
-    // books2
-    //   .then(res => {
-    //     const data = res.data
-    //     // global.globalGetBooks(data)
-    //   })
-    //   .catch((err) => {
-    //     console.error(err.message)
-    //   })
   }
 
   const getAllAuthors = async () => {
     const authors = await getAuthors()
-   await global.globalGetAuthors(authors.data)
-    // authors
-    //   .then(res => {
-    //     const data = res.data
-    //     global.globalGetAuthors(data)
-    //   })
-    //   .catch((err) => {
-    //     console.error(err.message)
-    //   })
+    await global.globalGetAuthors(authors.data)
   }
 
   useEffect(() => {
     getAllBooks() // 3 akcja pobrania danych z BE
     getAllAuthors()
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  useEffect(() => {
-    setAllBooks(global.globalBooks) // 4 czynnośc 
-    setAllAuthors(global.globalAuthors)
-  }, [allBooks, allAuthors])
 
 
   const howManyCards = global.globalBooks.length <= 2 ? 6 : 4
@@ -72,54 +44,41 @@ export const All: FC = () => {
 
   const showMore = (id: number, title: string): void => {
     navigate(`/${title}/${id}`)
-    
+
   }
 
-  const showCardWithBook: JSX.Element[] = booksWithNotaAuthors.map(item => {
+  const handleCloseSnackbar = () => {
+    global.globalOpenSnackbarChange(false)
+  }
+
+  const showCardWithBook: JSX.Element[] = booksWithNotaAuthors.map((item) => {
     return (
       <Grid item xs={12} md={howManyCards} key={item.id}>
-        <CardComponentBook 
-          title={item.title} 
+        <CardComponentBook
+          title={item.title}
           classCss='px150'
-          author={item.author} 
+          author={item.author}
           desc={item.desc}
           nota={item.nota}
           collapse={true}
-          >
+          imgScr={item.url}
 
-            <Button size="small">dodaj ocenę</Button>
-            <Button onClick={() => showMore(item.id, item.title)} size="small">Pokaż szczegóły</Button>
+        >
+          <Button size="small">dodaj ocenę</Button>
+          <Button onClick={() => showMore(item.id, item.title)} size="small">Pokaż szczegóły</Button>
         </CardComponentBook>
-        {/* <Card >
-          <CardMedia
-            className=''
-            component="img"
-            alt={`Okładka książki ${item.title}`}
-            height="150"
-            image='https://via.placeholder.com/150'
-          />
-          <CardContent className={styles.bodyCard}>
-            <Typography variant="h5" component="h5">
-              Tutuł: {item.title}
-            </Typography>
-            <Tooltip title={item.nota}>
-              <Typography variant="h5" component="h5">
-                Autor: {item.author.toUpperCase()}
-              </Typography>
-            </Tooltip>
-            <Typography variant="body2" color="text.secondary">
-              {item.desc}
-            </Typography>
-          </CardContent>
-          <CardActions>
-           
-          </CardActions>
-        </Card> */}
       </Grid>)
   })
   return (
-    <Grid container spacing={3}>
+    <>    <Grid container spacing={3}>
       {showCardWithBook}
     </Grid>
+      {global.globalalertInfoSnackbar.addBook && <Snackbar open={global.globalOpenSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity={global.globalalertInfoSnackbar.severity} sx={{ width: '100%' }}>
+          {global.globalalertInfoSnackbar.message}
+        </Alert>
+      </Snackbar>}</>
+
+
   )
 }

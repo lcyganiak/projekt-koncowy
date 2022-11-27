@@ -12,7 +12,8 @@ export const OneBook: FC = () => {
         author: string,
         desc: string,
         years: number,
-        rating: number[]
+        rating: number[],
+        url?: string,
     }
     const [book, setBook] = useState<BookInterface>({} as BookInterface)
     const { id } = useParams()
@@ -41,7 +42,8 @@ export const OneBook: FC = () => {
             classCss={'vh70'} 
             author={book.author} 
             desc={book.desc}
-            isBackArrow={true}        
+            isBackArrow={true}
+            imgScr={book.url}
         >
             <Button size="small">dodaj ocenę</Button>
         </CardComponentBook>)
