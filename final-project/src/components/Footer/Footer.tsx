@@ -4,7 +4,7 @@ export const Footer: FC = () => {
 	return (
 		<footer>
 			<div className={style.footer}>
-				<span>Developed by M.K. | </span>
+				<span>Developed by xxxxxxxxx | </span>
                
 			</div>
 			<div className={style.icon}>
