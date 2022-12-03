@@ -14,7 +14,8 @@ interface PropsCardComponentBook {
   children?: JSX.Element | JSX.Element[],
   collapse?: boolean,
   isBackArrow?: boolean,
-  imgScr?: string
+  imgScr?: string,
+  rating: number[]
 }
 
 export const CardComponentBook: FC<PropsCardComponentBook> = (
@@ -27,22 +28,35 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
     children,
     collapse,
     isBackArrow,
-    imgScr
-    
+    imgScr,
+    rating
+
   }
 ) => {
   const navigate = useNavigate()
+  const ratingValue = rating.length > 0
+    ? Math.round((rating.reduce((pre, curent) => pre + curent, 0) / rating.length))
+    : 'Brak oceny'
   const tooltip = () => {
     return (
       nota ?
-        <Tooltip title={nota}>
-          <Typography variant="h5" component="h5">
-            Autor: {author.toUpperCase()}
+        <>
+          <Tooltip title={<Typography variant="body2" sx={{ fontSize: 10 }}>{nota}</Typography>} className={styles.tooltipMain}>
+            <Typography variant="h5" component="h5">
+              Autor: {author.toUpperCase()}
+            </Typography>
+          </Tooltip>
+          <Typography variant='h6'>
+            <span> {title.toUpperCase()} ocena czytelników</span> {ratingValue}
           </Typography>
-        </Tooltip> :
+        </>
+        :
         <>
           <Typography variant="h5" component="h5">
             Autor: {author?.toUpperCase()}
+          </Typography>
+          <Typography variant='h6'>
+            <span> {title} ocena czytelników</span> {ratingValue}
           </Typography>
         </>
     )
@@ -54,7 +68,7 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
       )
     } else {
       return (
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" sx={{ margin: 1 }}>
           {desc}
         </Typography>
       )
@@ -66,12 +80,12 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
       {isBackArrow && <Button variant="text" startIcon={<ArrowBackIcon />} color='inherit' onClick={() => navigate(-1)}>
         Powrót
       </Button>}
-      <Card >
+      <Card className={styles.bodyCardBook} >
         <CardMedia
           className={styles[classCss]}
           component="img"
+          sx={{width: 200}}
           alt={`Okładka książki ${title}`}
-          height="150"
           image={imgScr}
         />
         <CardContent >
@@ -83,7 +97,7 @@ export const CardComponentBook: FC<PropsCardComponentBook> = (
         </CardContent>
         {collapseFn()}
         {!!{ children } &&
-          <CardActions>
+          <CardActions className={styles.cardActionBook}>
             {children}
           </CardActions>}
       </Card>
